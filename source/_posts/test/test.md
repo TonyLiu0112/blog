@@ -1,42 +1,58 @@
-# 端午节活动前端部署说明
-> 此版本为demo演示版本，提供游戏效果体验，游戏排名、用户对接等功能，因涉及到如下问题后续再定
-> 1. 对接客户id代码优化
-> 2. 排名列表用户信息接口调用 
+# 客户申请API说明
 
+> NODE: 提供客户申请接口，存储申请客户信息
 
-## Tomcat
+* 请求地址
+	
+		http://www.findmud.com:38080/guard/api/customer/application/save
+	
+* 请求类型
 
-* 版本 7.0+
+		POST
 
-* 安装
+* 请求参数
 
-    解压下载的压缩包到指定目录即可，例如linux安装包tomcat7.tar.gz
-    
-    `tar zxvf tomcat7.tar.gz`
-   
-## 部署
+	| 字段名     | 类型           | 必填   | 说明       | 
+	| ----------|:-------------:| -----:|-----------:|
+	| name      | String        | Yes   |联系人姓名    |
+	| telephone | String        | Yes   |联系人号码    |
+	| company   | String        | No    |公司名称      |
+	| mail      | String        | No    |联系人邮箱地址 |
 
+* 响应参数
 
-> $tomcat_home 代表你部署的tomcat根目录
+	| 字段名     | 类型           | 必填   |    说明           | 
+	| ----------|:-------------:| -----:|------------------:|
+	| msg       | String        | Yes   |  响应消息          |
+	| code      | String        | Yes   |  响应码            |
+	| results   | String        | No    |  Null             |
 
-* 创建文件目录
+* 响应码
 
-    `mkdir -p /$tomcat_home/webapps/ROOT/act/`
+	| 响应码     | 说明           | 
+	| ----------|:-------------:| 
+	| 0000      | 成功           | 
+	| 0004      | 用户已参与      | 
+	| 其他       | 失败           |
 
-* 解压demo演示项目
-
-    `tar zxvf festival0505.tar.gz`
-    
-* 将演示项目复制到容器
-
-    `mv festival0505 /$tomcat_home/webapps/ROOT/act/`
-
-* 启动服务
-
-    `./$tomcat_home/bin/startup.sh`
-    
-* 访问
-   
-   在手机端访问 *http://ip:port/act/festival0505/index.html*
-   
-   *eg*: `http://192.168.0.200:8080`
+* 示例
+ 
+		$.ajax({
+		  url: 'http://www.findmud.com:38080/guard/api/customer/application/save',
+		  dataType:"json",
+		  contentType: 'application/json',
+		  type:'post',
+		  data:JSON.stringify({
+		    name: 'TestName',
+		    telephone: '13888888888',
+		    company: 'TestCompany',
+		    mail: 'testmail@gmai.com'
+		  }),
+		  success:function(response){
+		    console.log(response);
+		    // do youself...
+		  },
+		  error:function(){
+			 // do youself...
+		  }
+		});
