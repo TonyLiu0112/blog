@@ -3,19 +3,23 @@ title: 客户申请API说明
 ---
 > NODE: 提供客户申请接口，存储申请客户信息
 
-* 请求地址
+## 请求说明
+
+### 地址
 	
 ```
 http://www.findmud.com:38080/guard/api/customer/application/save
 ```
 	
-* 请求类型
+### 类型
 
 ````
 POST
 ````
 
-* 示例
+## 使用
+
+### Jquery
  
 ``` 
 	$.ajax({
