@@ -98,7 +98,7 @@ configure arguments: --with-http_ssl_module
 $ /usr/local/nginx/sbin/nginx -c /usr/local/nginx/config/nginx.conf
 ```
 
-### 注意事项
+## 注意事项
 
 * 如果安装nginx之后, 发现还有额外模块没有安装，可以直接删除 `/usr/local/nginx` 目录，重新配置、编译、安装.
 * 有时经常会遇到明明启用了SSL, 但是在配置文件中总是提示未启用改模块，这时候请确认，启动参数重的nginx是否是当前安装的，这里容易和系统默认的nginx弄混淆.
