@@ -8,7 +8,7 @@ categories:
 ---
 Piwik默认不启用SSL配置，当你期望在一个HTTPS的网站进行监控，浏览器会提示
 
-![](./img/error-info.png)
+![](./piwik-ssl/error-info.png)
 
 error: `This request has been blocked; the content must be served over HTTPS.`
 
