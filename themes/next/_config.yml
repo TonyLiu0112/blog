@@ -132,7 +132,7 @@ scheme: Pisces
 
 social:
   GitHub: https://github.com/TonyLiu0112 || github
-  E-Mail: tony.liu0112@gmail.com || envelope
+  E-Mail: mailto:tony.liu0112@gmail.com || envelope
 social_icons:
   enable: true
   icons_only: false
