@@ -54,7 +54,7 @@ AOF已经能很好的帮我们解决数据持久化的问题，能最大程度�
 ## 自我复制
 
 在集群环境下，Redis采用Master-Slave模式保证数据持久化，对于集群环境，redis推荐最少配置为3M-3S模式，3个Master用来接收数据，并将数据异步同步到Slave上存储.
->Redis集群中，Redis将65000多个slot按照算法分配到3个Master上，每次请求的Key通过算法可以得到一个固定的slot编号，根据slot编号来决定使用那个master，原理类似一致性Hash环.
+>Redis集群中，Redis将65000多个slot按照CRC16算法分配到3个Master上，每次请求的Key通过CRC16算法可以得到一个固定的slot编号，根据slot编号来决定使用哪个master，原理类似一致性Hash环.
 
 当一个slave和一个master建立连接后，会发生如下事情
 
