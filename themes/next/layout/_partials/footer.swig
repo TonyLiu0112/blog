@@ -21,10 +21,6 @@
   {% endif %}
 </div>
 
-{% if theme.footer.powered and theme.footer.theme.enable %}
-  <span class="post-meta-divider">|</span>
-{% endif %}
-
 <div>
 备案: 苏ICP备17064383号
 </div>
