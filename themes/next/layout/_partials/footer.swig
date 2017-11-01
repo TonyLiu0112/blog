@@ -21,9 +21,14 @@
     #}{{ totalcount(site, '0,0.0a') }}{#
   #}</span>
   {% endif %}
+  <span id="busuanzi_container_page_pv">
+    <span id="busuanzi_value_page_pv"></span>次浏览
+  </span>
 </div>
 
-<span id="busuanzi_container_site_pv">访问量<span id="busuanzi_value_site_pv"></span>次</span>
+<span id="busuanzi_container_site_pv">
+  本站总访问量: <span id="busuanzi_value_site_pv"></span>
+</span>
 
 <div>
 备案: 苏ICP备17064383号
