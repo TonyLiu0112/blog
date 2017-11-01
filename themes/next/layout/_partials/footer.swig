@@ -21,12 +21,12 @@
   {% endif %}
 </div>
 
-<div>
-备案: 苏ICP备17064383号
-</div>
-
 {% if theme.footer.custom_text %}
   <div class="footer-custom">{#
   #}{{ theme.footer.custom_text }}{#
 #}</div>
 {% endif %}
+
+<div>
+备案: 苏ICP备17064383号
+</div>
