@@ -21,9 +21,6 @@
     #}{{ totalcount(site, '0,0.0a') }}{#
   #}</span>
   {% endif %}
-  <span id="busuanzi_container_page_pv">
-    <span id="busuanzi_value_page_pv"></span>次浏览
-  </span>
 </div>
 
 <span id="busuanzi_container_site_pv">
