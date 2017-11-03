@@ -259,7 +259,7 @@ public class MessageRouter {
 GET／POST: http://localhost:8080/msg/message
 ```
 
-源码地址: (https://github.com/TonyLiu0112/spring5-example)[https://github.com/TonyLiu0112/spring5-example]
+源码地址: [source-code](https://github.com/TonyLiu0112/spring5-example)
 
 
 
