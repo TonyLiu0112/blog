@@ -9,7 +9,7 @@ categories:
 
 Spring官网已经出了5.0版本的blog，预计不久将来就要普及了. 参考:[Spring 5 blog](https://spring.io/)
 
-5.0官方定义是：`Functional Web Framework`，功能新框架不仅支持新的路由等处理方式，还支持传统的注解方式（`@RequestMapping` `@Controller`）
+5.0官方定义是：`Functional Web Framework`(功能性框架)，它不仅支持新的路由等处理方式，还支持传统的注解方式（`@RequestMapping` `@Controller`）
 
 ## 新特性
 
