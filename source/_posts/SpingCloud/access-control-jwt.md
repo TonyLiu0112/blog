@@ -22,7 +22,7 @@ categories:
 * JWT中包含权限信息[ROLE_USER]
 
 这是一个JWT负载的示例
-```
+``` json
 {
     "scope":[
         "read",
@@ -52,7 +52,7 @@ categories:
 
 ### 自定义注解
 
-```
+``` java
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Roles {
@@ -64,7 +64,7 @@ public @interface Roles {
 
 ### AspectJ解析类
 
-```
+``` java
 @Component
 @Aspect
 public class AccessControlChecker {
@@ -129,7 +129,7 @@ public class AccessControlChecker {
 
 ### 使用
 
-```
+``` java
 @GetMapping("test")
 @Roles(values = {"ROLE_USER"}) // 仅仅有ROLE_USER权限才可访问
 public ResponseEntity<RestfulResponse> getShoppingcard(OAuth2Authentication oAuth2Authentication) {
