@@ -39,9 +39,9 @@ RouterFunction<?> route = route(GET("/person/{id}"),
 
 ### Flux和Mono
 
-规范了方法的返回，当你希望返回一个`List<Persion>`对象的时候，使用`Flux`对象作为方法返回值，当你希望返回一个普通`Person`对象，使用`Mono<Persion>`作为返回值.
+spring5使用webFlux框架，webFlux是反应堆([Reactor](https://www.jianshu.com/p/188ef8462100))模式的一个实践，基于事件驱动来处理高并发的场景，Reactor模式是网络编程中的常用设计模式，比如NIO的选择器等.
 
-之所以有这个，目测是整个架构上对lambada的全面支持.
+在WebFlux中，和反应堆相关的对象就是Mono和Flux, 当使用这两个对象作为方法的返回值, spring会使用反应堆模式来处理，适合高并发场景.
 
 ``` java
 public iinterface DemoService {
