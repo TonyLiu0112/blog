@@ -5,7 +5,7 @@ tags:
     - Spring Cloud
     - JWT
 categories:
-    - Spring CLoud
+    - Spring Cloud
 ---
 
 业务场景中精彩遇到典型的权限问题，包括用户权限，数据权限，访问权限，如果使用传统的web开发模式，可以使用Spring Security项目的相关注解完成配置，具体参考：[Spring Security Document](https://docs.spring.io/spring-security/site/docs/4.2.3.RELEASE/reference/htmlsingle/#method-security-expressions).

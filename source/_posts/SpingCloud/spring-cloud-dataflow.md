@@ -1,10 +1,10 @@
 ---
 title: Spring Cloud Data Flow -- Stream实战
 tags: 
-    - Spring Dataflow
+    - Spring Data Flow
     - Stream
 categories:
-    - Spring Cloud Data Flow
+    - Spring Cloud
 ---
 
 ## 简介
