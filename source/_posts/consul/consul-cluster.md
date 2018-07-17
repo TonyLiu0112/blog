@@ -141,6 +141,8 @@ consul提供可访问页面查看信息: `http://10.211.55.13:8500`
 
 consul集群的使用方式不同于普通集群的方式，当使用zk集群的时候，往往会将所有的zk机器信息配置到客户端中进行连接，当其中一台宕机后，自动切换到存活的leader节点，而consul是使用client的方式连接集群，client是无状态、可无限扩展的一个轻量级的客户端，当有5个应用需要使用consul，可以让每个应用启动自己的client来连接到consul集群。
 
+![](./spring-consul-artu.png)
+
 以spring boot项目为例，按照上述配置的结构，我们使用`consul-client01`机器作为测试项目的连接入口。
 
 ```yml
