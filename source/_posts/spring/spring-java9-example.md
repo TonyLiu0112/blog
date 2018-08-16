@@ -1,3 +1,13 @@
+---
+title: Spring boot 2.0 模块化开发
+tags: 
+    - spring 
+    - spring boot
+    - java9
+categories: 
+    - Spring
+---
+
 # 使用Java9模块化构建spring boot项目
 
 
