@@ -143,7 +143,7 @@ spring boot 2.x使用spring5的新特性，支持反应式（Reactor Flux）编�
 
 使用java9 + spring boot 2.x实现一个简单的支付模块，支付模块包含如下功能点:
 
-> 模块化和微服务概念类型，但并不冲突，每个微服务的内部通常使用模块化来实现，它们是一种互补的关系
+> 模块化和微服务概念类似，但并不冲突，每个微服务的内部通常使用模块化来实现，它们是一种互补的关系
 
 - 保证金支付
 - 积分支付
@@ -162,14 +162,14 @@ spring boot 2.x使用spring5的新特性，支持反应式（Reactor Flux）编�
 ### 项目结构
 
 ```bash
-spring-java9-examples		# ROOT目录
-├── gateway-client/ 		# 外部调用服务模块
-├── gateway-thirdparty/		# 第三方服务模块
-├── trade-basic/		    # 交易基础模块
-├── trade-callback/			# 交易状态一致性回调模块
-├── trade-channels/			# 交易渠道模块(多个渠道)
-├── trade-specification/	# 交易规则模块
-└── trade-state/			# 交易状态模块
+spring-java9-examples		
+├── gateway-client/ 		
+├── gateway-thirdparty/		
+├── trade-basic/		    
+├── trade-callback/			
+├── trade-channels/			
+├── trade-specification/	
+└── trade-state/			
 ```
 
 #### gateway-client
@@ -183,7 +183,7 @@ module gateway.client {
     // 声明需要的支付退款模块
     requires payment.integration;
     requires refund.integration;
-	// 声明需要的spring模块
+    // 声明需要的spring模块
     requires java.sql;
     requires spring.core;
     requires spring.beans;
@@ -199,7 +199,7 @@ module gateway.client {
     requires spring.boot.actuator;
     requires spring.boot.actuator.autoconfigure;
     requires spring.boot.starter.web;
-	// 放开包路径，便于spring反射使用
+    // 放开包路径，便于spring反射使用
     opens com.tony666.examples.spring.java9.getaway.client;
     opens com.tony666.examples.spring.java9.getaway.client.controller;
 }
@@ -211,7 +211,7 @@ module gateway.client {
 @RestController
 @RequestMapping("trade")
 public class IntegrationController {
-	// 注入支付、退款接口
+    // 注入支付、退款接口
     private final Payment payment;
     private final Refund refund;
 
@@ -277,7 +277,7 @@ public interface Payment {
 
 ```java
 public abstract class AbstractPayment implements Payment {
-	// 支付规则器集合
+    // 支付规则器集合
     private List<Specification<PaymentState>> paymentSpecification = new ArrayList<>();
 
     public AbstractPayment() {
@@ -314,7 +314,7 @@ module trade.basic {
     // refund
     exports com.tony666.examples.spring.java9.refund.facade.refund;
     exports com.tony666.examples.spring.java9.refund.facade.refund.vo;
-	// 依赖规则模块和交易状态模块
+    // 依赖规则模块和交易状态模块
     requires trade.specification;
     requires transitive trade.state;
 }
