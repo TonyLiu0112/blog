@@ -177,7 +177,7 @@ public class BusinessTests {
 * `ids`：由一组约定的分号分割的字符来表示`provider`的信息，约定规则为：`groupId:artifactId:version:classifier:port`，代码中的`+`代表默认值`stubs`
 * `stubsMode`：契约模式，可以读取本地的契约，也可以读取一个远程的契约，这里使用的是本地仓库的契约
 
-运行上述JunitTest，在不启动以来服务的前提下，`restTemplate`正常完成了一次原创调用，log中响应信息也正常返回
+运行上述JunitTest，在不启动依赖服务的前提下，`restTemplate`正常完成了一次正常调用，log中响应信息也正常返回
 
 ```verilog
 Matched response definition:
