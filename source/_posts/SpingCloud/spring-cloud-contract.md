@@ -131,7 +131,7 @@ public class PaymentController {
 mvn clean install -DskipTests -e
 ```
 
-### Consumer
+### consumer
 
 consumer的需要使用契约服务，需要添加依赖
 
@@ -199,4 +199,3 @@ Matched-Stub-Id: [7ccf85cd-17e9-48a2-8399-a77290ed64a1]
 
 
 源码地址：https://github.com/TonyLiu0112/contract-demo
-
