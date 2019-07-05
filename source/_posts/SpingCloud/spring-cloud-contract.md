@@ -64,7 +64,7 @@ categories:
 </plugin>
 ```
 
-##### 定义契约
+#### 定义契约
 
 在项目`test`目录的`resources`文件目录下新建`contracts`文件夹（契约支持`groovy`、`yml`等描述方式，这里使用`groovy`），新建契约文件: `payment.groovy`
 
@@ -101,7 +101,7 @@ Contract.make {
 }
 ```
 
-##### 编写controller
+#### 编写controller
 
 ```java
 @RestController
@@ -117,7 +117,7 @@ public class PaymentController {
 }
 ```
 
-##### 使用契约插件启用测试
+#### 使用契约插件启用测试
 
 ![](stub-test.png)
 
