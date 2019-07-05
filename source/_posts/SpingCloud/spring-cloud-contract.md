@@ -29,6 +29,8 @@ categories:
 
 ![](project-tree.png)
 
+
+
 ### provider
 
 首先来看provider，我们构建的provider项目的maven信息是
@@ -130,6 +132,8 @@ public class PaymentController {
 ```shell
 mvn clean install -DskipTests -e
 ```
+
+
 
 ### consumer
 
