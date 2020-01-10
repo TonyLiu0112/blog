@@ -117,6 +117,40 @@ public class DefaultResourceAwareStrategy implements IStrategy {
 }
 ```
 
-上述源码主体的调度逻辑非常清晰，就是一个对任务进行分发的过程，先按照components的连接数进行降序排序，再遍历components对任务进行调度，调度过程中会对资源的可用性进行选择，对于具体的资源选择逻辑，在`scheduleExecutor()`方法中实现
+上述源码主体的调度逻辑非常清晰，就是一个对任务进行分发的过程，先按照components的连接数进行降序排序，再遍历components对任务进行调度，调度过程中会对资源的可用性进行选择，对于节点的优先级选择，主要在`scheduleExecutor()`中进行
+
+```java
+		/**
+     * Schedule executor exec from topology td
+     *
+     * @param exec the executor to schedule
+     * @param td the topology executor exec is a part of
+     * @param schedulerAssignmentMap the assignments already calculated
+     * @param scheduledTasks executors that have been scheduled
+     */
+    private void scheduleExecutor(ExecutorDetails exec, TopologyDetails td, Map<WorkerSlot,
+            Collection<ExecutorDetails>> schedulerAssignmentMap, Collection<ExecutorDetails> scheduledTasks) {
+        // 找到合适的worker slot用来执行当前ExecutorDetails
+        WorkerSlot targetSlot = this.findWorkerForExec(exec, td, schedulerAssignmentMap);
+        if (targetSlot != null) {
+            RAS_Node targetNode = this.idToNode(targetSlot.getNodeId());
+            if (!schedulerAssignmentMap.containsKey(targetSlot)) {
+                schedulerAssignmentMap.put(targetSlot, new LinkedList<ExecutorDetails>());
+            }
+
+            schedulerAssignmentMap.get(targetSlot).add(exec);
+            targetNode.consumeResourcesforTask(exec, td);
+            scheduledTasks.add(exec);
+            LOG.debug("TASK {} assigned to Node: {} avail [ mem: {} cpu: {} ] total [ mem: {} cpu: {} ] on slot: {} on Rack: {}", exec,
+                    targetNode.getHostname(), targetNode.getAvailableMemoryResources(),
+                    targetNode.getAvailableCpuResources(), targetNode.getTotalMemoryResources(),
+                    targetNode.getTotalCpuResources(), targetSlot, nodeToRack(targetNode));
+        } else {
+            LOG.error("Not Enough Resources to schedule Task {}", exec);
+        }
+    }
+```
+
+
 
 ## 总结
